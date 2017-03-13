@@ -1,0 +1,94 @@
+[Root]
+Most Recent Package=打气球
+
+
+[Package|打气球|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\jrc\打气球\包
+
+[Package|打气球|Configure DAO ISAMs]
+Applicable=No
+
+[Package|打气球|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|打气球|Files Found]
+
+[Package|打气球|Files Released]
+
+[Package|打气球|Missing Dependency Information]
+
+[Package|打气球|Out-of-Date Dependency Information]
+
+[Package|打气球|Files Added]
+
+[Package|打气球|Files Removed]
+
+[Package|打气球|Files In Project]
+E:\jrc\打气球\工程1.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+E:\vb6.0\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\System32\VB6CHS.DLL=Yes
+C:\Windows\System32\COMCTL32.OCX=Yes
+C:\Windows\System32\CMCTLCHS.DLL=Yes
+E:\vb6.0\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+E:\vb6.0\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+E:\vb6.0\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|打气球|Configure Registry Files]
+Applicable=No
+
+[Package|打气球|Configure Remote Servers]
+Applicable=No
+
+[Package|打气球|Install Locations]
+E:\jrc\打气球\工程1.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+E:\vb6.0\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VB6CHS.DLL=$(WinSysPath)
+C:\Windows\System32\COMCTL32.OCX=$(WinSysPath)
+C:\Windows\System32\CMCTLCHS.DLL=$(WinSysPath)
+E:\vb6.0\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+E:\vb6.0\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+E:\vb6.0\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|打气球|Configure Shared Files]
+Applicable=Yes
+E:\jrc\打气球\工程1.exe=No
+
+[Package|打气球|Distribution]
+Type=single
+Size=
+Title=打气球
+
+[Package|打气球|IconGroups]
+Group0=打气球
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|打气球|打气球]
+Icon1=工程1.exe
+Title1=打气球
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|打气球|Package]
+PackageFolder=E:\jrc\打气球\包
+ProjectFolder=E:\jrc\打气球
+ServerSideCab=
+File1=E:\jrc\打气球\包\setup.exe
+File2=E:\jrc\打气球\包\Setup.Lst
+File3=E:\jrc\打气球\包\工程1.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

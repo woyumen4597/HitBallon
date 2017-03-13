@@ -1,0 +1,111 @@
+例子：添加一个label1,表示飞机
+’常数声明
+Const vbKeyLeft = 37 '        方向键←
+Const vbKeyUp = 38 '          方向键↑
+Const vbKeyRight = 39 '       方向键→
+Const vbKeyDown = 40 '        方向键↓
+’过程代码
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+Select Case KeyCode
+Case vbKeyLeft '左
+Label1.Move Label1.Left - 100, Label1.Top, Label1.Width, Label1.Height
+Case vbKeyUp '上
+Label1.Move Label1.Left, Label1.Top - 100, Label1.Width, Label1.Height
+Case vbKeyRight '右
+Label1.Move Label1.Left + 100, Label1.Top, Label1.Width, Label1.Height
+Case vbKeyDown '下
+Label1.Move Label1.Left, Label1.Top + 100, Label1.Width, Label1.Height
+End Select
+End Sub
+
+
+运行俄罗斯方块游戏时，读取积分的前五名数据Scores(4)，玩家游戏死局时得分Score，比较积分：
+if Score>Scores(4) then 
+Scores(4)=Scores
+for i=4 to 1 step-1
+if Scores(i)>Scores(i-1) then
+Score=Scores(i)
+Scores(i)=Scores(i-1)
+Scores(i-1)=Score
+endif
+next
+endif
+'Scores(0)～Scores(4)记录游戏后积分的前五名数据
+hur.cn或vip.hur.cn
+
+
+
+'游戏结束模块1,未进入排行榜
+Private Sub EndGame1()
+    Dim Words, Answer As Variant
+    Words = "      老鼠撞墙了，是否开始新游戏？"
+    Answer = MsgBox(Words, vbOKCancel, "游戏结束！")
+    If Answer = vbCancel Then cmdStart_Click
+        TimerChange
+        cmdStart.Enabled = True
+    If Answer = vbOK Then
+        cmdStart_Click
+    End If
+    txtWeight.Text = 50
+    txtScore.Text = 50
+End Sub
+'游戏结束模块2,进入排行榜
+Private Sub EndGame2()
+    TimerChange
+    formInputName.txtShowScore.Text = Weight
+    formInputName.Show
+    formInputName.txtName.SetFocus
+End Sub
+'得到排行榜最后一名的分数
+Private Sub GetMinScore()
+    If Dir$("排行榜.txt") = "" Then
+        Open "排行榜.txt" For Random As #1 Len = ULen
+        For i = 1 To 5
+            rank(i).score = 0
+            Put #1, i, rank(i)
+        Next i
+        Close #1
+        MinScore = 0
+    Else
+        Open "排行榜.txt" For Random As #1 Len = ULen
+        For i = 1 To 5
+            Get #1, i, rank(i)
+        Next i
+        Close #1
+        MinScore = rank(5).score
+    End If
+End Sub
+'游戏结束模块
+Private Sub EndGame()
+    GetMinScore
+    If Weight > MinScore Then
+        EndGame2
+    Else
+        EndGame1
+    End If
+    cmdStart_Click
+    TimerChange
+End Sub
+'显示排行榜
+Private Sub Form_Load()
+    Dim i As Integer
+    Open "排行榜.txt" For Random As #1 Len = ULen
+    For i = 1 To 5
+        Get #1, i, rank(i)
+    Next i
+    For i = 1 To 5
+        If rank(i).score > 0 Then
+            fraRank(i - 1).Visible = True
+            txtName(i - 1).Text = rank(i).Name
+            txtScore(i - 1).Text = Str(rank(i).score)
+        End If
+    Next i
+    Close #1
+End Sub
+
+
+Open "排行榜.txt" For Random As #1
+For i = 1 To 5
+Get #1, i, Rank(i)
+Next i
+Close #1
